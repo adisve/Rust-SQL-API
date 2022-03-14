@@ -12,12 +12,14 @@ use diesel::prelude::*;
 use diesel::MysqlConnection;
 
 use std::string::String;
-use crate::schema::user;
-use crate::schema::user::dsl::user as all_users;
-use crate::schema::phone;
-use crate::schema::phone::dsl::phone as all_phones;
-use crate::schema::schedule;
-use crate::schema::schedule::dsl::schedule as all_schedules;
+use schema::user;
+use schema::user::dsl::user as all_users;
+use schema::phone;
+use schema::phone::dsl::phone as all_phones;
+use schema::schedule;
+use schema::schedule::dsl::schedule as all_schedules;
+
+mod schema;
 
 /*--------------------------------------------------------------------*/
 
@@ -123,7 +125,7 @@ impl User {
 
     pub fn update_by_name(user_id: i32, conn: MysqlConnection, user: NewUser)
      -> bool {
-        use crate::schema::user::dsl::{email as e, password as p, name as n};
+        use crate::models::schema::user::dsl::{email as e, password as p, name as n};
         let NewUser {
             email,
             password,
@@ -182,7 +184,7 @@ impl Phone {
 
     pub fn update_by_imei(input_imei: String, conn: MysqlConnection, phone: NewPhone)
      -> bool {
-        use crate::schema::phone::dsl::{
+        use crate::models::schema::phone::dsl::{
             imei as i, uuid as u,
                 mac as m, brand as b, model as mo, 
                     manufacturer as man, user_id as usd};
