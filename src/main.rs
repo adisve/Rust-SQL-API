@@ -5,6 +5,10 @@
 extern crate diesel;
 #[macro_use]
 extern crate dotenv;
+extern crate r2d2;
+extern crate r2d2_diesel;
+extern crate rocket;
+extern crate rocket_contrib;
 
 use std::io;
 use diesel::prelude::*;
