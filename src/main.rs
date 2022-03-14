@@ -30,7 +30,7 @@ fn main()
     {
         display_menu();
         let mut input = String::new();
-        io::stdin().read_line(&mut input).expect("Faulty input");
+        io::stdin().read_line(&mut input).expect(&err_msg());
 
         match &*input.trim() 
         {
@@ -49,7 +49,7 @@ fn main()
                 break;
             }
             _ => {
-                println!("Something went wrong.")
+                println!(&err_msg())
             }
         }
         input.clear();
