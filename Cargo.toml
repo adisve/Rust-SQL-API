@@ -7,3 +7,4 @@ edition = "2021"
 diesel = { version = "1.0.0", features = ["mysql"]}
 diesel_codegen = { version = "0.16.0", features = ["mysql"] }
 dotenv = "0.9.0"
+rprompt = "1.0"

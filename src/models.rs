@@ -12,9 +12,13 @@ use crate::schema::phone::dsl::phone as all_phones;
 use crate::schema::schedule;
 use crate::schema::schedule::dsl::schedule as all_schedules;
 
+/*--------------------------------------------------------------------*/
+
 /* Difference between these structs and 'New' structs is that these structs query
    existing tables from the Database and those annotated with 'New' are meant to allow us
    to insert new entities */
+
+/*--------------------------------------------------------------------*/
 
 #[derive(Queryable)]
 pub struct User{

@@ -18,6 +18,7 @@ dependencies = [
  "diesel 1.4.8",
  "diesel_codegen",
  "dotenv 0.9.0",
+ "rprompt",
 ]
 
 [[package]]
@@ -222,6 +223,12 @@ checksum = "7d707a4fa2637f2dca2ef9fd02225ec7661fe01a53623c1e6515b6916511f7a7"
 dependencies = [
  "ucd-util",
 ]
+
+[[package]]
+name = "rprompt"
+version = "1.0.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b386f4748bdae2aefc96857f5fda07647f851d089420e577831e2a14b45230f8"
 
 [[package]]
 name = "ryu"
