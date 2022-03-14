@@ -1,22 +1,20 @@
-#![allow(dead_code)]
-#![allow(unused_imports)]
 table! {
     bluetooth_module (module_id, pillow_id) {
-        module_id -> Integer,
-        mac -> Nullable<Varchar>,
+        mac -> Varchar,
         uuid -> Nullable<Varchar>,
+        module_id -> Integer,
         pillow_id -> Integer,
     }
 }
 
 table! {
     phone (imei) {
-        imei -> Integer,
-        mac -> Nullable<Varchar>,
-        uuid -> Nullable<Varchar>,
-        brand -> Nullable<Varchar>,
-        manufacturer -> Nullable<Varchar>,
-        model -> Nullable<Varchar>,
+        imei -> Char,
+        uuid -> Char,
+        mac -> Char,
+        brand -> Varchar,
+        model -> Varchar,
+        manufacturer -> Varchar,
         user_id -> Integer,
     }
 }
@@ -25,8 +23,8 @@ table! {
     pillow (pillow_id) {
         pillow_id -> Integer,
         model -> Nullable<Varchar>,
-        product_number -> Nullable<Integer>,
         user_id -> Integer,
+        version_number -> Nullable<Float>,
     }
 }
 
@@ -34,8 +32,8 @@ table! {
     schedule (schedule_id) {
         schedule_id -> Integer,
         alarm_date -> Nullable<Varchar>,
-        schedule_name -> Nullable<Varchar>,
         user_id -> Integer,
+        schedule_name -> Nullable<Varchar>,
     }
 }
 

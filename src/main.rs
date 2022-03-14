@@ -21,7 +21,7 @@ fn main()
     dotenv().ok();
     let url = env::var("DATABASE_URL").expect("set URL");
     let conn = &MysqlConnection::establish(&url).unwrap();
-    println!("Welcome back Admin\n");
+    println!("\nWelcome back Admin\n");
     loop
     {
         display_menu();
@@ -40,7 +40,12 @@ fn main()
 
             "3" => {
                 show_all_users(&conn);
-            }
+            },
+
+            "4" => {
+                
+            },
+
             "10" => {
                 break;
             }
