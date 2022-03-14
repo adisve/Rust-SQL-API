@@ -33,23 +33,17 @@ fn main()
             "1" => {
                 add_new_user(&conn);
             },
-
             "2" => {
                 show_user(&conn);
             },
-
             "3" => {
                 show_all_users(&conn);
             },
-
             "4" => {
-                
             },
-
             "10" => {
                 break;
             }
-
             _ => {
                 println!("Something went wrong.")
             }
@@ -120,5 +114,32 @@ fn show_user(conn: &&MysqlConnection)
         }
     }else{
         println!("\nerror parsing output");
+    }
+}
+
+fn insert_phone(conn: &&MysqlConnection)
+{
+    let imei = rprompt::prompt_reply_stdout("\nIMEI : ").unwrap();
+    let uuid = rprompt::prompt_reply_stdout("\nUUID : ").unwrap();
+    let mac = rprompt::prompt_reply_stdout("\nMAC : ").unwrap();
+    let brand = rprompt::prompt_reply_stdout("\nBrand : ").unwrap();
+    let model = rprompt::prompt_reply_stdout("\nModel : ").unwrap();
+    let manufacturer = rprompt::prompt_reply_stdout("\nManufacturer : ").unwrap();
+    let user_id = rprompt::prompt_reply_stdout("\nUser id : ").unwrap();
+    
+    let phone = models::NewPhone {
+        imei : imei,
+        uuid : uuid,
+        mac : mac,
+        brand : brand,
+        model : model,
+        manufacturer : manufacturer,
+        user_id : user_id.parse::<i32>().unwrap()
+    };
+
+    if models::Phone::insert(phone, &conn){
+        println!("Successful insertion");
+    }else{
+        println!("Failed to insert phone");
     }
 }
