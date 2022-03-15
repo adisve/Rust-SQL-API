@@ -18,7 +18,9 @@ pub mod models;
 
 /*--------------------------------------------------------------------*/
 
-/* This is where admin enters commands and is  */
+/* Main function for retrieving info regarding what the admin wishes 
+   to do. First thing that happens is that we create a connection pool
+   to our database pillow_db. Then it is only one long match case. */
 
 /*--------------------------------------------------------------------*/
 
