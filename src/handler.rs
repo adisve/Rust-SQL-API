@@ -7,7 +7,7 @@ use dotenv::dotenv;
 
 /* These are the functions that act as a gap between our ORM and the
    user input. The user enters one of several option in main.rs and
-   ends up executing one of these functions. */
+   ends up executing one of these functions.                          */
 
 /*--------------------------------------------------------------------*/
 
@@ -167,9 +167,8 @@ pub fn show_all_phones(conn: &&MysqlConnection)
 
 pub fn update_phone_by_imei(conn: &&MysqlConnection)
 {
-    /* Only time you would update a phone table row is 
-       when the user gets a new phone, so everything
-       has to change except for the user_id */
+    /*      Only time you would update a phone table row is when the user gets a new phone, so everything
+            has to change except for the user_id                                                           */
     let search_imei = rprompt::prompt_reply_stdout("\nIMEI Key : ").unwrap();
 
     let imei = rprompt::prompt_reply_stdout("\nNew IMEI : ").unwrap();
