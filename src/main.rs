@@ -16,11 +16,21 @@ use std::env;
 pub mod handler;
 pub mod models;
 
+/*--------------------------------------------------------------------*/
+
+/* This is where admin enters commands and is  */
+
+/*--------------------------------------------------------------------*/
+
+
 fn main() 
 {
+
     dotenv().ok();
     let url = env::var("DATABASE_URL").expect("set URL");
     let conn = &MysqlConnection::establish(&url).unwrap();
+
+
     println!("\nWelcome back Admin\n");
     loop
     {
@@ -41,9 +51,42 @@ fn main()
             },
             "4" => {
             },
+            "6" => {
+                break;
+            },
+            "7" => {
+                break;
+            },
+            "8" => {
+                break;
+            },
+            "9" => {
+                break;
+            },
             "10" => {
                 break;
-            }
+            },
+            "11" => {
+                break;
+            },
+            "12" => {
+                break;
+            },
+            "13" => {
+                break;
+            },
+            "14" => {
+                break;
+            },
+            "15" => {
+                break;
+            },
+            "16" => {
+                break;
+            },
+            "17" => {
+                break;
+            },
             _ => {
                 println!("{}", &handler::err_msg())
             }

@@ -1,8 +1,15 @@
-
 use std::io;
 use diesel::prelude::*;
 use diesel::MysqlConnection;
 use dotenv::dotenv;
+
+/*--------------------------------------------------------------------*/
+
+/* These are the functions that act as a gap between our ORM and the
+   user input. The user enters one of several option in main.rs and
+   ends up executing one of these functions. */
+
+/*--------------------------------------------------------------------*/
 
 pub fn err_msg() -> String
 {
@@ -11,9 +18,20 @@ pub fn err_msg() -> String
 
 pub fn display_menu()
 {
-    println!("----------\n");
+    println!("---------------------------------------------\n");
     println!("1. Insert new user\t2. Show a user\n");
     println!("3. Show all users\t4. Delete a user\n");
+    println!("5. Update user\t       6. Show all users by name\n");
+    println!("---------------------------------------------\n");
+    println!("7. Show phone by IMEI(15 digits)\t8. Show all phones\n");
+    println!("9. Update phone by IMEI\t        10. Insert new phone\n");
+    println!("11. Delete phone by IMEI\t12. Show all phones by brand\n");
+    println!("---------------------------------------------\n");
+    println!("13. Show schedule by id\t    14. Show all schedules\n");
+    println!("15. Update by schedule id\t16. Insert schedule\n");
+    println!("17. Delete by schedule id\t\n");
+    println!("---------------------------------------------\n");
+
 }
 
 pub fn add_new_user(conn: &&MysqlConnection)
@@ -47,7 +65,7 @@ pub fn show_all_users(conn: &&MysqlConnection)
         println!("\t");
         println!("Password : {}", user.password);
         println!("\t");
-        println!("-----------------\n");
+        println!("-------------------------\n");
     }
 }
 
@@ -65,7 +83,7 @@ pub fn show_user(conn: &&MysqlConnection)
             println!("\nPassword : {}", user.password);
         }
     }else{
-        println!("\nerror parsing output");
+        println!("\nEmpty set");
     }
 }
 

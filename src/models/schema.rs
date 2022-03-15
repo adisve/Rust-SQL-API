@@ -1,3 +1,10 @@
+/*--------------------------------------------------------------------*/
+
+/* These are the table macros for our ORM, they represent the database
+   schemas tables and rows.  */
+
+/*--------------------------------------------------------------------*/
+
 table! {
     bluetooth_module (module_id, pillow_id) {
         mac -> Varchar,

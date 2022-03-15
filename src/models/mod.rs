@@ -51,9 +51,9 @@ pub struct Phone{
 #[derive(Queryable)]
 pub struct Schedule{
     pub schedule_id : i32,
-    pub schedule_name : String,
-    pub alarm_date : String,
-    pub user_id : i32
+    pub alarm_date : Option<String>,
+    pub user_id : i32,
+    pub schedule_name : Option<String>
 }
 
 /*--------------------------------------------------------------------*/
@@ -63,7 +63,6 @@ pub struct Schedule{
    annotation 'Insertable' does the same but for Inserts. */
 
 /*--------------------------------------------------------------------*/
-
 
 /* Insertable trait tells  */
 #[derive(Insertable)]
@@ -89,11 +88,11 @@ pub struct NewPhone{
 #[derive(Insertable)]
 #[table_name = "schedule"]
 pub struct NewSchedule{
-    pub alarm_date : String,
+    pub schedule_id : i32,
+    pub alarm_date : Option<String>,
     pub user_id : i32,
-    pub schedule_name : String
+    pub schedule_name : Option<String>
 }
-
 
 /*--------------------------------------------------------------------*/
 
@@ -164,7 +163,6 @@ impl User {
 }
 
 
-
 impl Phone {
     pub fn show(imei: String, conn: &MysqlConnection
     ) -> Vec<Phone> {
@@ -227,5 +225,55 @@ impl Phone {
             .filter(phone::brand.eq(brand))
             .load::<Phone>(conn)
             .expect("Error loading users")
+    }
+}
+
+impl Schedule {
+    pub fn show(schedule_id: i32, conn: &MysqlConnection
+    ) -> Vec<Schedule> {
+        all_schedules
+            .find(schedule_id)
+            .load::<Schedule>(conn)
+            .expect("Error loading schedule")
+    }
+
+    pub fn all(conn: &MysqlConnection
+    ) -> Vec<Schedule>{
+        all_schedules
+            .order(schedule::schedule_id.desc())
+            .load::<Schedule>(conn)
+            .expect("Error loading schedules")
+    }
+
+    pub fn update_by_schedule_id(schedule_id: i32, conn: MysqlConnection, schedule: NewSchedule)
+     -> bool {
+        use crate::models::schema::schedule::dsl::{alarm_date as a, schedule_name as s};
+        let NewSchedule {
+            schedule_id,
+            alarm_date,
+            user_id,
+            schedule_name
+        } = schedule;
+
+        diesel::update(all_schedules.find(schedule_id))
+            .set((a.eq(alarm_date), s.eq(schedule_name)))
+            .execute(&conn)
+            .is_ok()
+    }
+
+    pub fn insert(schedule: NewSchedule, conn: &MysqlConnection)
+     -> bool {
+        diesel::insert_into(schedule::table)
+            .values(&schedule)
+            .execute(conn)
+            .is_ok()
+    }
+
+    pub fn delete_by_schedule_id(schedule_id: i32, conn: &MysqlConnection)
+     -> bool {
+        if Schedule::show(schedule_id, conn).is_empty() {
+            return false;
+        }
+        diesel::delete(all_schedules.find(schedule_id)).execute(conn).is_ok()
     }
 }
