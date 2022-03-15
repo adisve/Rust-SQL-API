@@ -12,12 +12,12 @@ use diesel::prelude::*;
 use diesel::MysqlConnection;
 
 use std::string::String;
-use schema::user;
 use schema::user::dsl::user as all_users;
-use schema::phone;
 use schema::phone::dsl::phone as all_phones;
-use schema::schedule;
 use schema::schedule::dsl::schedule as all_schedules;
+use schema::user;
+use schema::phone;
+use schema::schedule;
 
 mod schema;
 
@@ -88,10 +88,34 @@ pub struct NewPhone{
 #[derive(Insertable)]
 #[table_name = "schedule"]
 pub struct NewSchedule{
-    pub schedule_id : i32,
     pub alarm_date : Option<String>,
     pub user_id : i32,
     pub schedule_name : Option<String>
+}
+
+/*--------------------------------------------------------------------*/
+
+/* Update structs, since we do not want to change specific information
+   each time we need to update an entity inside of our database.   */
+
+/*--------------------------------------------------------------------*/
+
+#[derive(Insertable)]
+#[table_name = "schedule"]
+pub struct UpdateSchedule{
+    pub alarm_date : Option<String>,
+    pub schedule_name : Option<String>
+}
+
+#[derive(Insertable)]
+#[table_name = "phone"]
+pub struct UpdatePhone{
+    pub imei : String,
+    pub mac : String,
+    pub uuid : String,
+    pub brand : String,
+    pub manufacturer : String,
+    pub model : String,
 }
 
 /*--------------------------------------------------------------------*/
@@ -122,7 +146,7 @@ impl User {
             .expect("Error loading users")
     }
 
-    pub fn update_by_name(user_id: i32, conn: MysqlConnection, user: NewUser)
+    pub fn update(user_id: i32, conn: &MysqlConnection, user: NewUser)
      -> bool {
         use crate::models::schema::user::dsl::{email as e, password as p, name as n};
         let NewUser {
@@ -133,7 +157,7 @@ impl User {
 
         diesel::update(all_users.find(user_id))
             .set((e.eq(email), p.eq(password), n.eq(name)))
-            .execute(&conn)
+            .execute(conn)
             .is_ok()
     }
 
@@ -145,7 +169,7 @@ impl User {
             .is_ok()
     }
 
-    pub fn delete_by_user_id(user_id: i32, conn: &MysqlConnection)
+    pub fn delete(user_id: i32, conn: &MysqlConnection)
      -> bool {
         if User::show(user_id, conn).is_empty() {
             return false;
@@ -180,26 +204,25 @@ impl Phone {
             .expect("Error loading phones")
     }
 
-    pub fn update_by_imei(input_imei: String, conn: MysqlConnection, phone: NewPhone)
+    pub fn update(input_imei: String, conn: &MysqlConnection, phone: UpdatePhone)
      -> bool {
         use crate::models::schema::phone::dsl::{
             imei as i, uuid as u,
                 mac as m, brand as b, model as mo, 
-                    manufacturer as man, user_id as usd};
-        let NewPhone {
+                    manufacturer as man};
+        let UpdatePhone {
             imei,
             uuid,
             mac,
             brand,
             model,
             manufacturer,
-            user_id
         } = phone;
 
         diesel::update(all_phones.find(input_imei))
             .set((i.eq(imei), u.eq(uuid), m.eq(mac), b.eq(brand), mo.eq(model),
-                man.eq(manufacturer), usd.eq(user_id)))
-            .execute(&conn)
+                man.eq(manufacturer)))
+            .execute(conn)
             .is_ok()
     }
 
@@ -211,7 +234,7 @@ impl Phone {
             .is_ok()
     }
 
-    pub fn delete_by_imei(imei: String, conn: &MysqlConnection)
+    pub fn delete(imei: String, conn: &MysqlConnection)
      -> bool {
         if Phone::show(imei.to_string(), conn).is_empty() {
             return false;
@@ -245,19 +268,17 @@ impl Schedule {
             .expect("Error loading schedules")
     }
 
-    pub fn update_by_schedule_id(schedule_id: i32, conn: MysqlConnection, schedule: NewSchedule)
+    pub fn update(schedule_id: i32, conn: &MysqlConnection, schedule: UpdateSchedule)
      -> bool {
         use crate::models::schema::schedule::dsl::{alarm_date as a, schedule_name as s};
-        let NewSchedule {
-            schedule_id,
+        let UpdateSchedule {
             alarm_date,
-            user_id,
             schedule_name
         } = schedule;
 
         diesel::update(all_schedules.find(schedule_id))
             .set((a.eq(alarm_date), s.eq(schedule_name)))
-            .execute(&conn)
+            .execute(conn)
             .is_ok()
     }
 
@@ -269,7 +290,7 @@ impl Schedule {
             .is_ok()
     }
 
-    pub fn delete_by_schedule_id(schedule_id: i32, conn: &MysqlConnection)
+    pub fn delete(schedule_id: i32, conn: &MysqlConnection)
      -> bool {
         if Schedule::show(schedule_id, conn).is_empty() {
             return false;

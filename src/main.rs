@@ -7,11 +7,12 @@ extern crate diesel;
 extern crate dotenv;
 
 use std::io;
-use diesel::prelude::*;
-use diesel::MysqlConnection;
-use dotenv::dotenv;
-use crate::models::User;
 use std::env;
+use std::process;
+use dotenv::dotenv;
+use diesel::prelude::*;
+use crate::models::User;
+use diesel::MysqlConnection;
 
 pub mod handler;
 pub mod models;
@@ -20,74 +21,80 @@ pub mod models;
 
 /* Main function for retrieving info regarding what the admin wishes 
    to do. First thing that happens is that we create a connection pool
-   to our database pillow_db. Then it is only one long match case. */
+   to our database pillow_db. Then it is only one long match case.    */
 
 /*--------------------------------------------------------------------*/
 
 
 fn main() 
 {
-
     dotenv().ok();
-    let url = env::var("DATABASE_URL").expect("set URL");
+    let url = env::var("DATABASE_URL").expect(
+        "A set URL is required. You can import it as '.env' inside the root package");
     let conn = &MysqlConnection::establish(&url).unwrap();
-
 
     println!("\nWelcome back Admin\n");
     loop
     {
-        handler::display_menu();
+        handler::display_menu(); //
         let mut input = String::new();
         io::stdin().read_line(&mut input).expect(&handler::err_msg());
 
         match &*input.trim() 
         {
+            "0" => {
+                process::exit(1);
+            },
             "1" => {
-                handler::add_new_user(&conn);
+                handler::insert_new_user(&conn); //
             },
             "2" => {
-                handler::show_user(&conn);
+                handler::show_user_by_id(&conn); //
             },
             "3" => {
-                handler::show_all_users(&conn);
+                handler::show_all_users(&conn); //
             },
             "4" => {
+                handler::delete_user_by_id(&conn); //
+            },  
+            "5" => {
+                handler::update_user_by_id(&conn); // 
             },
             "6" => {
-                break;
+                handler::show_all_users_by_name(&conn); //
             },
             "7" => {
-                break;
+                handler::show_phone_by_imei(&conn); //
             },
             "8" => {
-                break;
+                handler::show_all_phones(&conn); //
             },
             "9" => {
-                break;
+                handler::update_phone_by_imei(&conn); //
             },
             "10" => {
-                break;
+                handler::insert_new_phone(&conn); //
             },
             "11" => {
-                break;
+                handler::delete_phone_by_imei(&conn); //
             },
             "12" => {
-                break;
+                handler::show_all_phones_by_brand(&conn); //
             },
             "13" => {
-                break;
+                handler::show_schedule_by_id(&conn); //
             },
             "14" => {
-                break;
+                handler::show_all_schedules(&conn); //
             },
             "15" => {
-                break;
+                handler::update_schedule_by_id(&conn); //
             },
             "16" => {
-                break;
+                handler::insert_new_schedule(&conn); //
             },
             "17" => {
-                break;
+                handler::delete_schedule_by_id(&conn); //
             },
             _ => {
                 println!("{}", &handler::err_msg())
