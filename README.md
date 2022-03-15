@@ -11,7 +11,6 @@
 <h3 align="center">Rust-MYSQL-API</h3>
 
   <p align="center">
-    project_details
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -83,10 +82,8 @@ comiling it and running it.
 
 These are the necessary libraries, binaries and general requirements
 * rustc
-  - ```sh
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh ``` on UNIX (requires curl package manager)
-  - ```sh
-    choco install rust ```on Windows (requires chocolatey package manager)
+  - ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` on UNIX (requires curl package manager)
+  - ```choco install rust``` on Windows (requires chocolatey package manager)
 
 * [MySQL Client Library](https://dev.mysql.com/downloads/c-api/)
 
@@ -96,7 +93,7 @@ These are the necessary libraries, binaries and general requirements
 1. Get the SQL ddl for the database at [Database-SQL](https://github.com/adisve/Rust-SQL-API/blob/main/DATABASE.sql) and
    run it in your database. A user called 'API' with the password 'P@sSw0r_D' is also required.
    
-3. Clone the repo
+2. Clone the repo
    ```sh
    git clone https://github.com/adisve/Rust-SQL-API.git
    ```
