@@ -8,7 +8,7 @@
     <img src="https://github.com/adisve/Rust-SQL-API/blob/main/rust-logo.svg" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Rust-MYSQL-API</h3>
+<h3 align="center">Rust-SQL-API</h3>
 
   <p align="center">
     <br />
