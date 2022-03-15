@@ -8,12 +8,10 @@
     <img src="https://github.com/adisve/Rust-SQL-API/blob/main/rust-logo.svg" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Rust-MYSQL-Client</h3>
+<h3 align="center">Rust-MYSQL-API</h3>
 
   <p align="center">
-    This is a simple terminal application written in the programming language Rust, together with the Diesel framework, which was used when creating the ORM.
-    The program connects to the user 'guest' on the network 'localhost', with the password 'P@sSw0r_D' to the database 'pillow_db'.
-    The purpose of this application is to allow access to my local database for the project in the course Database Technique at Kristianstad University.
+    project_details
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -61,7 +59,9 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+This is a simple terminal application written in the programming language Rust, together with the Diesel framework, which was used when creating the ORM.
+The program connects to the user 'guest' on the network 'localhost', with the password 'P@sSw0r_D' to the database 'pillow_db'.
+The purpose of this application is to allow access to my local database for the project in the course Database Technique at Kristianstad University. `adisve`, `Rust-MYSQL-API`, `Adis Veletanlic`, `gmail`, `adis.veletanlic@gmail.com`, `Rust-MySQL-API`, `project_description`
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
