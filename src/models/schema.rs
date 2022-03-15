@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------*/
 
 /* These are the table macros for our ORM, they represent the database
-   schemas tables and rows.  */
+   schemas tables and rows.                                           */
 
 /*--------------------------------------------------------------------*/
 
