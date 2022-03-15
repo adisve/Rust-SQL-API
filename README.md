@@ -57,7 +57,7 @@
 ## About The Project
 
 This is a simple terminal application written in the programming language Rust, together with the Diesel framework, which was used when creating the ORM.
-The program connects to the user 'guest' on the network 'localhost', with the password 'P@sSw0r_D' to the database 'pillow_db'.
+The program connects to the user 'API' on the network 'localhost', with the password 'P@sSw0r_D' to the database 'pillow_db'.
 The purpose of this application is to allow access to my local database for the project in the course Database Technique at Kristianstad University.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
