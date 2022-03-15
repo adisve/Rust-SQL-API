@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------*/
 
 /* This is an ORM made to retrieve entities from the pillow_db database
-   and map them into usable Structs defined in the program. */
+   and map them into usable Structs defined in the program.           */
 
 /*--------------------------------------------------------------------*/
 
@@ -25,7 +25,7 @@ mod schema;
 
 /* Difference between these structs and 'New' structs is that these structs query
    existing tables from the Database and those annotated with 'New' are meant to allow us
-   to insert new entities */
+   to insert new entities                                             */
 
 /*--------------------------------------------------------------------*/
 
@@ -60,7 +60,7 @@ pub struct Schedule{
 
 /* The Queryable annotation will generate all of the code needed
    to load a Post struct from a SQL query. Naturally the below
-   annotation 'Insertable' does the same but for Inserts. */
+   annotation 'Insertable' does the same but for Inserts.             */
 
 /*--------------------------------------------------------------------*/
 
@@ -96,7 +96,7 @@ pub struct NewSchedule{
 
 /*--------------------------------------------------------------------*/
 
-/* These are the methods our API uses to interact with the database */
+/* These are the methods our API uses to interact with the database   */
 
 /*--------------------------------------------------------------------*/
 
