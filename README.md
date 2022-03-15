@@ -57,12 +57,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 This is a simple terminal application written in the programming language Rust, together with the Diesel framework, which was used when creating the ORM.
 The program connects to the user 'guest' on the network 'localhost', with the password 'P@sSw0r_D' to the database 'pillow_db'.
-The purpose of this application is to allow access to my local database for the project in the course Database Technique at Kristianstad University. `adisve`, `Rust-MYSQL-API`, `Adis Veletanlic`, `gmail`, `adis.veletanlic@gmail.com`, `Rust-MySQL-API`, `project_description`
-
+The purpose of this application is to allow access to my local database for the project in the course Database Technique at Kristianstad University.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
