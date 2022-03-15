@@ -4,14 +4,16 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/adisve/Rust-SQL-API.git">
+    <img src="https://github.com/adisve/Rust-SQL-API/blob/main/rust-logo.svg" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Rust-MYSQL-Client</h3>
 
   <p align="center">
-    project_description
+    This is a simple terminal application written in the programming language Rust, together with the Diesel framework, which was used when creating the ORM.
+    The program connects to the user 'guest' on the network 'localhost', with the password 'P@sSw0r_D' to the database 'pillow_db'.
+    The purpose of this application is to allow access to my local database for the project in the course Database Technique at Kristianstad University.
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -88,27 +90,35 @@ These are the necessary libraries, binaries and general requirements
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh ``` on UNIX (requires curl package manager)
   - ```sh
     choco install rust ```on Windows (requires chocolatey package manager)
-* MySQL Client Library
+
+* [MySQL Client Library](https://dev.mysql.com/downloads/c-api/)
+
 
 ### Installation
 
-1. Get the SQL ddl for the database at [https://github.com/adisve/Rust-SQL-API/blob/main/DATABASE.sql](https://github.com/adisve/Rust-SQL-API/blob/main/DATABASE.sql)
-2. Clone the repo
+1. Get the SQL ddl for the database at [Database-SQL](https://github.com/adisve/Rust-SQL-API/blob/main/DATABASE.sql) and
+   run it in your database. A user called 'API' with the password 'P@sSw0r_D' is also required.
+   
+3. Clone the repo
    ```sh
    git clone https://github.com/adisve/Rust-SQL-API.git
    ```
-3. cd into directory
+   
+3. Cd into directory
    ```sh
    cd Rust-SQL-API
    ```
+   
 4. Build the project with cargo
    ```rs
    cargo build
    ```
+   
 5. Run the project
    ```rs
    cargo run
    ```
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -135,7 +145,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@linkedin](https://www.linkedin.com/in/adis-veletanlic-2b51b4229/) - adis.veletanlic@gmail.com
+Adis Veletanlic - [@linkedin](https://www.linkedin.com/in/adis-veletanlic-2b51b4229/) - adis.veletanlic@gmail.com
 
 Project Link: [https://github.com/adisve/Rust-SQL-API.git](https://github.com/adisve/Rust-SQL-API.git)
 
