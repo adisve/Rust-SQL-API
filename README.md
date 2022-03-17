@@ -16,10 +16,6 @@
     <br />
     <br />
     <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
   </p>
 </div>
 
@@ -76,7 +72,7 @@ The purpose of this application is to allow access to my local database for the 
 ## Getting Started
 
 Currently this is only a debug version, but you can still run the program by manually
-comiling it and running it.
+compiling it and running it.
 
 ### Prerequisites
 
@@ -87,6 +83,7 @@ These are the necessary libraries, binaries and general requirements
 
 * [MySQL Client Library](https://dev.mysql.com/downloads/c-api/)
 
+* [MySQL](https://www.mysql.com/downloads/)
 
 ### Installation
 
@@ -142,6 +139,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Adis Veletanlic - [@linkedin](https://www.linkedin.com/in/adis-veletanlic-2b51b4229/) - adis.veletanlic@gmail.com
 
-Project Link: [https://github.com/adisve/Rust-SQL-API.git](https://github.com/adisve/Rust-SQL-API.git)
+Project Link: [https://github.com/adisve/Rust-SQL-API](https://github.com/adisve/Rust-SQL-API)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
