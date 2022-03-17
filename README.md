@@ -94,6 +94,10 @@ These are the necessary libraries, binaries and general requirements
     ```sh
     CREATE USER 'API'@'localhost' IDENTIFIED BY 'P@sSw0r_D;'
     ```
+    Now grant all privileges to user
+    ```sh
+    GRANT ALL PRIVILEGES ON pillow_db TO 'API'@'localhost'
+    ```
    
 2. Clone the repo
    ```sh
