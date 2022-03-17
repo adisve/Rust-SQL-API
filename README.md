@@ -87,6 +87,7 @@ These are the necessary libraries, binaries and general requirements
 
 * [MySQL Client Library](https://dev.mysql.com/downloads/c-api/)
 
+* [MySQL](https://www.mysql.com/downloads/)
 
 ### Installation
 
@@ -142,6 +143,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Adis Veletanlic - [@linkedin](https://www.linkedin.com/in/adis-veletanlic-2b51b4229/) - adis.veletanlic@gmail.com
 
-Project Link: [https://github.com/adisve/Rust-SQL-API.git](https://github.com/adisve/Rust-SQL-API.git)
+Project Link: [https://github.com/adisve/Rust-SQL-API](https://github.com/adisve/Rust-SQL-API)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
