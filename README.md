@@ -90,6 +90,11 @@ These are the necessary libraries, binaries and general requirements
 1. Get the SQL ddl for the database at [Database-SQL](https://github.com/adisve/Rust-SQL-API/blob/main/DATABASE.sql) and
    run it in your database. A user called 'API' with the password 'P@sSw0r_D' is also required.
    
+2. Create a new user called "API" as root user in your MySQL server.
+    ```sh
+    CREATE USER 'API'@'localhost' IDENTIFIED BY 'P@sSw0r_D;'
+    ```
+   
 2. Clone the repo
    ```sh
    git clone https://github.com/adisve/Rust-SQL-API.git
