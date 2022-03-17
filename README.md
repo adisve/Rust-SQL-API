@@ -76,7 +76,7 @@ The purpose of this application is to allow access to my local database for the 
 ## Getting Started
 
 Currently this is only a debug version, but you can still run the program by manually
-comiling it and running it.
+compiling it and running it.
 
 ### Prerequisites
 
