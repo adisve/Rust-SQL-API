@@ -1,7 +1,7 @@
 use std::io;
+use dotenv::dotenv;
 use diesel::prelude::*;
 use diesel::MysqlConnection;
-use dotenv::dotenv;
 
 /*--------------------------------------------------------------------*/
 
