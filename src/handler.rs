@@ -139,6 +139,7 @@ pub fn show_phone_by_imei(conn: &&MysqlConnection)
         println!("\nModel : {}", phones[0].model);
         println!("\nManufacturer : {}", phones[0].manufacturer);
         println!("\nUser Id : {}", phones[0].user_id);
+        println!("-----------------------------------------\n");
     
     }else{
         println!("\nEmpty set");
@@ -158,7 +159,7 @@ pub fn show_all_phones(conn: &&MysqlConnection)
             println!("\nModel : {}", phone.model);
             println!("\nManufacturer : {}", phone.manufacturer);
             println!("\nUser Id : {}", phone.user_id);
-            println!("-----------------------------------------");
+            println!("-----------------------------------------\n");
         }
     }else{
         println!("\nEmpty set");
@@ -275,10 +276,13 @@ pub fn show_all_schedules(conn: &&MysqlConnection)
     let schedules = crate::models::Schedule::all(&conn);
     if !schedules.is_empty()
     {
-        println!("\nSchedule id : {}", schedules[0].schedule_id);
-        println!("\nAlarm date : {:?}", schedules[0].alarm_date);
-        println!("\nUser Id : {:?}", schedules[0].user_id);
-        println!("\nSchedule name : {:?}", schedules[0].schedule_name);
+        for schedule in schedules{
+            println!("\nSchedule id : {}", schedule.schedule_id);
+            println!("\nAlarm date : {:?}", schedule.alarm_date);
+            println!("\nUser Id : {:?}", schedule.user_id);
+            println!("\nSchedule name : {:?}", schedule.schedule_name);
+            println!("-----------------------------------------\n");
+        }
     }else
     {
         println!("Empty set");
